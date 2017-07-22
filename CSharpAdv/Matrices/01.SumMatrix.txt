@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace tests
+{
+    public class Program
+    {
+        static void Main()
+        {
+            var inp = Console.ReadLine();
+            var tok = inp.Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
+            var rowsMax = int.Parse(tok[0]);
+            var colsMax = int.Parse(tok[1]);
+            int [][] m = new int[rowsMax][];
+
+            for (int i = 0; i < rowsMax; i++)
+            {
+                m[i] = Console.ReadLine()
+                    .Split(new string[] {", "}, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(int.Parse)
+                    .ToArray();
+            }
+
+            var sum = 0; 
+            for (int rows = 0; rows < rowsMax; rows++)
+            {
+                for (int cols = 0; cols < colsMax; cols++)
+                {
+                    sum += m[rows][cols];
+                }
+            }
+
+            Console.WriteLine(rowsMax);
+            Console.WriteLine(colsMax);
+            Console.WriteLine(sum);
+        }
+
+    }
+}
