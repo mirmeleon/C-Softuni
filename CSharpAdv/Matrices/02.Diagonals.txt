@@ -1,0 +1,37 @@
+using System;
+using System.Linq;
+
+public class Program
+    {
+        static void Main()
+        {
+            int size = int.Parse(Console.ReadLine());
+          //  var rows = Console.ReadLine().Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries)
+               // .Select(int.Parse).ToArray();
+              int[][] m = new int[size][];
+            var primary = 0;
+            var secondary = 0;
+
+        for (int row = 0; row < size; row++)
+            {
+               
+                    m[row] = Console.ReadLine().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse).ToArray();
+
+            
+            } 
+
+            for (int i = 0; i < size; i++)
+            {
+                primary += m[i][i];
+            }
+
+            for (int i = 0; i < size; i++)
+            {
+                secondary += m[i][size - 1 - i];
+            }
+
+            Console.WriteLine(Math.Abs(primary - secondary));
+        }
+
+    }

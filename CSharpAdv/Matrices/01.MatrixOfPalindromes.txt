@@ -1,0 +1,39 @@
+using System;
+using System.Linq;
+
+public class Program
+    {
+        static void Main()
+        {
+            
+            var inp = Console.ReadLine().Split(new[] {' '},
+                    StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse).ToArray();
+            int r = inp[0];
+            int c = inp[1]; //97
+
+            string[,] m = new string[r,c];
+            
+
+            for (int row = 0; row < r; row++)
+            {
+                for (int col = 0; col < c; col++)
+                {
+                    var startChar = (char)(97+row);
+                    
+                    var secChar = (char) (97 + col+row);
+                    var thirdChar = (char) (97 + row);
+                
+
+                m[row,col] = startChar.ToString() + secChar.ToString() + thirdChar.ToString();
+                    Console.Write(m[row,col] + " ");
+              }
+                Console.WriteLine();
+            }
+
+
+           
+
+        }
+
+    }

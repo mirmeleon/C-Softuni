@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public class Program
+    {
+        static void Main()
+        {
+            int[] inp =
+                Console.ReadLine()
+                .Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse)
+                .ToArray();
+            int rows = inp[0];
+            int cols = inp[1];
+            
+            string[][] m = new string[rows][];
+
+              for (int i = 0; i < rows; i++)
+              {
+                  m[i] = Console.ReadLine().Split(' '); 
+              }
+
+            var equalRow = 0;
+            var equalCol = 0;
+            var equalExist = false;
+           var indexes = new List<int>();
+            for (int i = 0; i < rows-1; i++)
+            {
+                for (int j = 0; j < cols-1; j++)
+                {
+
+                if (m[i][j] == m[i][j + 1] &&
+                   m[i][j] == m[i + 1][j] &&
+                    m[i][j] == m[i + 1][j + 1])
+                {
+                    equalRow = i;
+                    indexes.Add(i);
+                   
+                }
+            }
+               
+            }
+
+            Console.WriteLine(indexes.Count);
+
+
+
+        }
+
+    }
